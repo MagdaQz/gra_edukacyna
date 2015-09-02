@@ -1,0 +1,4 @@
+music game data/game.mp3
+
+
+sfx jump data/jump.wav
