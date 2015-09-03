@@ -56,7 +56,7 @@ void WordsMaker::Draw()
 	{
 		m_frame[i]->Draw();
 		m_letters[i]->Draw();
-				//m_letters[1]->ForbidMoving();
+
 	}
 	if(correct)
 	{
