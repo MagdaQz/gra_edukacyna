@@ -3,10 +3,9 @@
 // czy prostok¹ty siê przecinaj¹
 bool Aabb::Collides(const Aabb & box) const {
     if (m_min_x > box.m_max_x || m_max_x < box.m_min_x || m_min_y > box.m_max_y || m_max_y < box.m_min_y) {
-		//std::cout<<" brak kolizja"<<std::endl;
+
         return false;
     }
-	//std::cout<<"kolizja"<<std::endl;
     return true;
 }
 
@@ -23,7 +22,6 @@ bool Aabb::IsUnder(const Aabb & box) const {
 
 // czy this jest po lewej stronie box'a
 bool Aabb::IsOnLeftOf(const Aabb & box) const {
-	//std::cout<<"kolizja"<<std::endl;
     return Collides(box) && m_min_x < box.m_min_x && box.m_min_x < m_max_x;
 }
 
