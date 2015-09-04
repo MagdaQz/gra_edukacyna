@@ -26,29 +26,7 @@ public:
     void SetY(double newy)                   { m_y = newy; }
     void SetPosition(double x, double y)     { m_x = x; m_y = y; }
 
-	 // zarz¹dzanie prêdkoœci¹
-   // double GetXVelocity() const              { return m_vx; }
- //   double GetYVelocity() const              { return m_vy; }
-  //  double GetNextXVelocity(double dt) const { return m_vx ; }
-  //  double GetNextYVelocity(double dt) const { return m_vy + m_ay * dt;; }
-  //  double GetDefaultXVelocity() const       { return m_default_velocity_x; }
-  //  double GetDefaultYVelocity() const       { return m_default_velocity_y; }
-   // void  NegateXVelocity()                  { m_vx = -m_vx; }
-  //  void  NegateYVelocity()                  { m_vy = -m_vy; }
-  //  void  NegateVelocity()                   { NegateXVelocity(); NegateYVelocity(); }
-  //  void  SetXVelocity(double velocity)      { m_vx = velocity; }
- //   void  SetYVelocity(double velocity)      { m_vy = velocity; }
- //   void  SetVelocity(double vx, double vy)  { m_vx = vx; m_vy = vy; }
-
-    // zarz¹dzanie przyspieszeniem
-  //  double GetXAcceleration() const          { return m_ax; }
- //   double GetYAcceleration() const          { return m_ay; }
-  //  double GetDefaultXAcceleration() const   { return m_default_acceleration_x; }
- //   double GetDefaultYAcceleration() const   { return m_default_acceleration_y; }
- //   void  SetXAcceleration(double accel)     { m_ax = accel; }
-  //  void  SetYAcceleration(double accel)     { m_ay = accel; }
-
-
+	
 	
    // pod argumenty x, y zapisuje numer aktualnego kafla
     void GetCurrentTile(size_t *x, size_t *y) const;
@@ -72,18 +50,8 @@ public:
     }
 
 
-private:
-
-//	double m_default_velocity_x;      // domyœlna prêdkoœæ
- //   double m_default_velocity_y;
- //   double m_default_acceleration_x;  // domyœlne przyspieszenie
- //   double m_default_acceleration_y;
 
 protected:
-   // PS::PlayerState m_state;  // stan, w którym znajduje siê jednostka
-    //SpritePtr m_left;         // animacja, kiedy jednostka idzie w lewo
-    //SpritePtr m_right;        // animacja, kiedy jednostka idzie w prawo
-    //SpritePtr m_stop;         // animacja, kiedy jednostka stoi
 
     double m_x;               // po³o¿enie jednostki na osi odciêtych
     double m_y;               // po³o¿enie jednostki na osi rzêdnych
