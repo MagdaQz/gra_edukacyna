@@ -195,7 +195,6 @@ void App::CheckPlayerEntitiesCollisions(double dt) {
 
         // sprawdŸ czy wyst¹pi³a kolizja. 
         if (player_box_y.IsOver(letter_box)) {
-            // naskoczenie na jednostkê
             m_player->CollisionUnderPlayer(letter);
 			letter->CollisionOverPlayer(m_player);
             player_box_y = m_player->GetNextVerticalAabb(dt);
@@ -220,7 +219,6 @@ void App::CheckPlayerEntitiesCollisions(double dt) {
 
         }
         else if (player_box_y.IsUnder(letter_box)) {
-          //  m_player->ForbidGoingUp();
             m_player->CollisionOverPlayer(letter);
 			letter->CollisionUnderPlayer(m_player);
             player_box_y = m_player->GetNextVerticalAabb(dt);
