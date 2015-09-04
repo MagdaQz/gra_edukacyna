@@ -26,14 +26,14 @@ class WordsMaker
 public:
 WordsMaker();
  void LettersMaker();
-// void SetAlphabet (const SpritePtr Alpha []);
+
  void ReadWord();
  void SetLetters();
  void Draw();
  void Update(double dt);
  void DrawInfo(SpritePtr sprite);
  void DrawMixed();
- //void DrawBuilded(int firstletter, int lettersbuild );
+
  void LetLettersMove() {letterCanMove = true;}
  void ForbidLettersMove();
  bool LettersCanMove() { return letterCanMove;}
@@ -43,7 +43,7 @@ WordsMaker();
  bool LettersCollide();
  bool CheckIfWordCorrect();
 
- //void SetCollisions (bool doesCollide) {lettersCollisions = doesCollide;}
+
 
 
  void MoveRight();
@@ -67,7 +67,7 @@ private:
  bool correct;
  SpritePtr m_winner;
  SpritePtr m_table;
- //bool lettersCollisions;
+
 };
 
 typedef shared_ptr<WordsMaker> WordsMakerPtr;

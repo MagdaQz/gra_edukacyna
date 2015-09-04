@@ -56,7 +56,7 @@ void WordsMaker::Draw()
 	{
 		m_frame[i]->Draw();
 		m_letters[i]->Draw();
-				//m_letters[1]->ForbidMoving();
+
 	}
 	if(correct)
 	{
@@ -74,7 +74,7 @@ void WordsMaker::Update(double dt)
 	{
 		m_frame[i]->Update(dt);
 		m_letters[i]->Update(dt);
-		//m_letters[1]->ForbidMoving();
+
 
 	}
 	if(correct)
@@ -200,7 +200,6 @@ bool WordsMaker::LettersCollide()
 			Aabb letter_box2 = m_letters[j]->GetAabb();
 			if(letter_box.Collides(letter_box2)) return true;
 		}
-			//return false;
 	}
 	return false;
 }
