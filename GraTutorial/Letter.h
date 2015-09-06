@@ -17,18 +17,13 @@ public:
       m_y(y),
       m_vx(0.0),
       m_vy(0),
-      m_ay(DefaultYAcceleration),
-      m_running_factor(1.0),
-     // m_jump_allowed(true),
       m_level_width(level_width),
 	  m_level_height(level_height),
-    //  m_is_on_ground(true),
       m_can_go_left(false),
       m_can_go_right(false),
 	  m_can_go_down(false),
 	  m_can_go_up(false),
 	  m_correct(false){}
-	//SpritePtr GetSprite() {return m_sprite;};
 	ET::EntityType GetType() const {
         return ET::Letter;
     }
@@ -62,8 +57,6 @@ public:
     void CollisionOverPlayer(EntityPtr entity);
     void CollisionUnderPlayer(EntityPtr entity);
 
-	//void Run()               { m_running_factor = 2.0; }
-   // void StopRunning()       { m_running_factor = 1.0; }
     void GoLeft()            { m_vx -= 4.0; }
     void GoRight()           { m_vx += 4.0; }
 	void GoDown()			 { m_vy -= 4.0; }
@@ -86,11 +79,10 @@ public:
 						  m_can_go_up = false;}
 
 	double GetNextXPosition(double dt) const { 
-        return m_x + m_vx * dt * m_running_factor; 
+        return m_x + m_vx * dt; 
     }
     double GetNextYPosition(double dt) const { 
-        //return m_y + (m_vy + m_ay * dt) * dt; 
-		return m_y + m_vy * dt * m_running_factor;
+		return m_y + m_vy * dt ;
     }
  
 	 Aabb GetBasicAabb() const { return Aabb(.1, 0, .9, .9);  }
@@ -101,23 +93,20 @@ public:
 private:
 	 enum { DefaultXVelocity = 4, DefaultYVelocity = 20,
            DefaultXAcceleration = 0, DefaultYAcceleration = -60 };
-	 double m_x;               // po³o¿enie postaci na osi odciêtych
-    double m_y;               // po³o¿enie postaci na osi rzêdnych
+	 double m_x;               // po³o¿enie litery na osi odciêtych
+    double m_y;               // po³o¿enie litery na osi rzêdnych
     double m_vx;              // prêdkoœæ na osi OX
-    double m_vy;              // prêdkoœæ gracza w pionie
-    double m_ay;              // przyspieszenie gracza w pionie
-    double m_running_factor;  // wspó³czynnik biegania. 
-    std::string m_letter;                         //         >1.0 => biegnie, 
-                              //         <1.0 => spowolnienie
+    double m_vy;              // prêdkoœæ litery w pionie
+    std::string m_letter;                       
+                            
 
 	size_t m_level_width; 
 	size_t m_level_height;    // szerokoœæ poziomu (w kaflach)
-   // bool m_is_on_ground;      // czy postaæ jest na pod³o¿u
-    bool m_can_go_left;       // czy postaæ mo¿e iœæ w lewo
-    bool m_can_go_right;      // czy postaæ mo¿e iœæ w prawo
-	bool m_can_go_down;
-	bool m_can_go_up;
-	bool m_correct;
+    bool m_can_go_left;       // czy litera mo¿e przesun¹æ siê w lewo
+    bool m_can_go_right;      // czy litera mo¿e przesun¹æ siê w prawo
+	bool m_can_go_down;		// czy litera mo¿e przesun¹æ siê w dó³
+	bool m_can_go_up;		//czy litera mo¿e przesun¹æ siê w góre
+	bool m_correct;			// czy litera jest w prawid³owym po³o¿eniu
 	SpritePtr m_letterSprite;
 };
 
