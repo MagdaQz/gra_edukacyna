@@ -51,7 +51,7 @@ void App::Run() {
     Engine::Get().FSound()->PlayMusic("game");
 
   // pêtla g³ówna
-  is_done = false;
+ // is_done = false;
   size_t last_ticks = SDL_GetTicks();
 
   while (!is_done) {
@@ -148,7 +148,7 @@ void App::ProcessEvents() {
 		}else if (event.type == SDL_KEYDOWN
 				&& event.key.keysym.sym == SDLK_SPACE){
 			 do m_wordsmaker ->DrawMixed();
-			 while(m_wordsmaker->LettersCollide());			 
+			 while(m_wordsmaker->LettersCollide(m_player));			 
 		}else if (event.type == SDL_KEYDOWN
 				&& event.key.keysym.sym == SDLK_RSHIFT){
 			 NewGame();			 

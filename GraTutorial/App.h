@@ -18,7 +18,7 @@ public:
     m_fullscreen(fullscreen_mode) {
 		m_player.reset(new Player(1, 1, 10, 10));
 		m_wordsmaker.reset(new WordsMaker());
-
+		is_done = false;
   }
  
 

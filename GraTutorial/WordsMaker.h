@@ -14,7 +14,7 @@
 #include <time.h>
 #include "Entity.h"
 #include "Letter.h"
-//#include "Player.h"
+#include "Player.h"
 
 
 
@@ -40,7 +40,7 @@ WordsMaker();
  int GetWordSize(){return m_word.length();}
  LetterPtr GetLetter(int n){return m_letters[n];}
  LetterPtr GetFrame (int n){return m_frame[n];}
- bool LettersCollide();
+ bool LettersCollide(PlayerPtr player);
  bool CheckIfWordCorrect();
 
 

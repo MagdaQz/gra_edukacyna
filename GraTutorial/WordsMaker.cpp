@@ -190,15 +190,21 @@ void WordsMaker::StopDown()
 }
 
 
-bool WordsMaker::LettersCollide()
+bool WordsMaker::LettersCollide(PlayerPtr player)
 {
+	Aabb player_box = player->GetAabb();
 	for (int i = 0; i < m_wordsize; i++)
 	{
+
 		Aabb letter_box = m_letters[i]->GetAabb();
+		Aabb frame_box = m_frame[i] ->GetAabb();
+		if(letter_box.Collides(player_box)) return true;
+
 		for (int j = i+1;j < m_wordsize; j++)
 		{
 			Aabb letter_box2 = m_letters[j]->GetAabb();
 			if(letter_box.Collides(letter_box2)) return true;
+			if(frame_box.Collides(letter_box2)) return true;
 		}
 	}
 	return false;
