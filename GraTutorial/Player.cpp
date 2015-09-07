@@ -5,8 +5,8 @@
 Player::Player(double x, double y, size_t level_width, size_t level_height) 
     : Entity(x, y, DefaultXVelocity, DefaultYVelocity, DefaultXAcceleration, DefaultYAcceleration, true),
 	  m_state(PS::Stand),
-      m_running_factor(1.0),
-      m_jump_allowed(true),
+     // m_running_factor(1.0),
+    //  m_jump_allowed(true),
       m_level_width(level_width),
 	  m_level_height(level_height)
  
@@ -24,28 +24,17 @@ void Player::SetSprites(SpritePtr left,
 	m_down = down;
 }
 
-void Player::Jump(double y_velocity) {
-    // wykonaj skok o ile jest taka mo¿liwoœæ
-    if (m_jump_allowed) {
-        m_jump_allowed = false;
-        m_is_on_ground = false;
-        m_vy = y_velocity;            // pocz¹tkowa prêdkoœæ
-        m_ay = DefaultYAcceleration;  // przyspieszenie
-    }
-}
  
 void Player::CollisionOnRight(EntityPtr entity) {
 
    ForbidGoingRight();
    StopRight();
-  // cout<<"kolizja z prawej"<<endl;
+
 }
 
 void Player::CollisionOnLeft(EntityPtr entity) {
     ForbidGoingLeft();
-	//SetXVelocity(0);
 	StopLeft();
-	//cout <<"kolizja z lewej"<<endl;
 
 }
 
@@ -96,19 +85,7 @@ void Player::Draw() const {
 }
 
 void Player::Update(double dt) {
-    // wylicz now¹ prêdkoœæ oraz po³ó¿enie na osi OY
-  /*  if (!m_is_on_ground) {
-        m_y = GetNextYPosition(dt);
-        m_vy += m_ay * dt;
-    }*/
  
-    // je¿eli poni¿ej pierwszego kafla, to nie spadaj ni¿ej.
-    // Na razie ustalamy poziom na y=1, aby postaæ nie ucieka³a
-    //  za ekran
-  /*  if (m_y < 1) {
-        m_y = 1;
-        PlayerOnGround();}*/
-    
  
     // wylicz pozycjê gracza w poziomie (oœ OX).
     m_x = GetNextXPosition(dt);
@@ -127,17 +104,8 @@ void Player::Update(double dt) {
         m_y = m_level_height - 1; 
     }
 
-	/* double next_x = GetNextXPosition(dt);
-    if (next_x < m_x && m_can_go_left) {
-        m_x = next_x;
-    } else if (next_x > m_x && m_can_go_right) {
-        m_x = next_x;
-    } */
-    // ustal stan ruchu gracza na podstawie prêdkoœci
-   /* if (fabs(m_vx) < 0.01) {
-        m_state = PS::Stand;
-        m_vx = 0;
-    } else*/ if (m_vx > 0.0) {
+	
+    if (m_vx > 0.0) {
         m_state = PS::GoRight;
     } else if(m_vx < 0.0 ) {
 		m_state = PS::GoLeft;

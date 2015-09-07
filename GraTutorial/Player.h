@@ -28,8 +28,7 @@ public:
         return DefaultYAcceleration; 
     }
  
-    void Run()               { m_running_factor = 2.0; }
-    void StopRunning()       { m_running_factor = 1.0; }
+
     void GoLeft()            { m_vx -= 4.0; m_state=PS::GoLeft; }
     void GoRight()           { m_vx += 4.0; m_state=PS::GoRight;}
 	void GoDown()			 { m_vy -= 4.0; m_state =PS::GoDown; }
@@ -42,23 +41,17 @@ public:
     void ForbidGoingRight()  { m_can_go_right = false; }
 	void ForbidGoingDown()	 { m_can_go_down = false; }
 	void ForbidGoingUp()	 { m_can_go_up = false; }
-    void Fall()              { m_vy = 0.0; m_is_on_ground = false;}
-    void Jump(double y_velocity = DefaultYVelocity);
-    void AllowToJump()       { m_jump_allowed = true; }
-    void ForbidToJump()      { m_jump_allowed = false; }
-    void SetDefaultMoving()  { m_is_on_ground = false;
+
+    void SetDefaultMoving()  {
                                m_can_go_right = m_can_go_left=true;
     }
-    void PlayerOnGround()    { m_vy = 0;
-                               m_is_on_ground=m_jump_allowed=true;
-    }
+
  
     double GetNextXPosition(double dt) const { 
-        return m_x + m_vx * dt * m_running_factor; 
+        return m_x + m_vx * dt ;
     }
     double GetNextYPosition(double dt) const { 
-        //return m_y + (m_vy + m_ay * dt) * dt; 
-		return m_y + m_vy * dt * m_running_factor;
+		return m_y + m_vy * dt; 
     }
  
 	 Aabb GetBasicAabb() const { return Aabb(.1, 0, .7, .9);  }
@@ -77,15 +70,11 @@ private:
     SpritePtr m_left;         // animacja - postaæ idzie w lewo
     SpritePtr m_right;        // animacja - postaæ idzie w prawo
     SpritePtr m_stop;		  // animacja - postaæ stoi
-	SpritePtr m_down;
-	SpritePtr m_up;
+	SpritePtr m_down;		  // animacja - postac idzie w dó³
+	SpritePtr m_up;			  // animacja - postac idzie w góre	
 
-    double m_running_factor;  // wspó³czynnik biegania. 
-                              //         >1.0 => biegnie, 
-                              //         <1.0 => spowolnienie
-    bool m_jump_allowed;      // czy gracz mo¿e skakaæ 
-                              // (np. jest na pod³o¿u)
-    size_t m_level_width; 
+ 
+    size_t m_level_width;	  // wysokoœæ poziomu
 	size_t m_level_height;    // szerokoœæ poziomu (w kaflach)
 
 };
