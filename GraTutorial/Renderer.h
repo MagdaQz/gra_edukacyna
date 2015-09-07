@@ -14,17 +14,7 @@ using std::shared_ptr;
 
 class Renderer
 {
-/*public:
-	void LoadTexture(const std::string & filename) ;
-	void DrawSprite(double tex_x, double tex_y, 
-                          double tex_w, double tex_h, 
-                          double pos_x, double pos_y,
-                          double width, double height, 
-                          DL::DisplayLayer layer);
 
-private:
-
-  GLuint m_texture;*/
 
 public:
     Renderer() :

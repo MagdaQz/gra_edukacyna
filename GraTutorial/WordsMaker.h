@@ -54,7 +54,6 @@ WordsMaker();
  void StopLeft();
  void StopUp();
  void StopDown();
-// bool SpellingIsCorrect(LetterPtr letter1, LetterPtr letter2); 
 
 private:
   std::string m_word;

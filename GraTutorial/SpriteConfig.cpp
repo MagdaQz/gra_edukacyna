@@ -5,17 +5,7 @@ using namespace std;
 
 
 SpriteConfig::SpriteConfig() {
-  /*  Insert("player_right", 
-           SpriteConfigData(
-               DL::Player, 5, 0.2, 0, 4*32, 32, 32, true));
  
-    Insert("player_left",  
-           SpriteConfigData(
-               DL::Player, 5, 0.2, 0, 5*32, 32, 32, true));
- 
-    Insert("player_stop",  
-           SpriteConfigData(
-               DL::Player, 1, 0.2, 0, 6*32, 32, 32, true));*/
 	
 	Insert("player_right", 
            SpriteConfigData(
