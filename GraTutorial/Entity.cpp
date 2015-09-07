@@ -5,7 +5,7 @@
 #include "Engine.h"
 
 Entity::Entity(double x, double y, double def_velocity_x, double def_velocity_y,
-               double def_acceleration_x, double def_acceleration_y)
+               double def_acceleration_x, double def_acceleration_y, bool canMove)
     : 
       m_x(x),
       m_y(y),
@@ -13,9 +13,10 @@ Entity::Entity(double x, double y, double def_velocity_x, double def_velocity_y,
       m_vy(0),
       m_ax(def_acceleration_x),
       m_ay(def_acceleration_y),
-      m_is_on_ground(true),
-      m_can_go_left(true),
-      m_can_go_right(true)
+      m_can_go_left(canMove),
+      m_can_go_right(canMove),
+	  m_can_go_up(canMove),
+	  m_can_go_down(canMove)
       {
 }
 

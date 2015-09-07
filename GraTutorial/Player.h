@@ -91,11 +91,11 @@ private:
                               // (np. jest na pod³o¿u)
     size_t m_level_width; 
 	size_t m_level_height;    // szerokoœæ poziomu (w kaflach)
-    bool m_is_on_ground;      // czy postaæ jest na pod³o¿u
+ //   bool m_is_on_ground;      // czy postaæ jest na pod³o¿u
 //    bool m_can_go_left;       // czy postaæ mo¿e iœæ w lewo
  //   bool m_can_go_right;      // czy postaæ mo¿e iœæ w prawo
-	bool m_can_go_down;
-	bool m_can_go_up;
+//	bool m_can_go_down;
+//	bool m_can_go_up;
 };
 typedef shared_ptr<Player> PlayerPtr;
 #endif

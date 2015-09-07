@@ -11,18 +11,18 @@ class Letter : public Entity
 {
 public:
 	Letter (double x, double y, size_t level_width, size_t level_height, std::string letter) 
-    : Entity(x, y, DefaultXVelocity, DefaultYVelocity, DefaultXAcceleration, DefaultYAcceleration),
+    : Entity(x, y, DefaultXVelocity, DefaultYVelocity, DefaultXAcceleration, DefaultYAcceleration, false),
 	  m_letter(letter),
-      m_x(x),
-      m_y(y),
-      m_vx(0.0),
-      m_vy(0),
+   //   m_x(x),
+   //   m_y(y),
+   //   m_vx(0.0),
+ //     m_vy(0),
       m_level_width(level_width),
 	  m_level_height(level_height),
-      m_can_go_left(false),
-      m_can_go_right(false),
-	  m_can_go_down(false),
-	  m_can_go_up(false),
+    //  m_can_go_left(false),
+    //  m_can_go_right(false),
+	//  m_can_go_down(false),
+	//  m_can_go_up(false),
 	  m_correct(false){}
 	ET::EntityType GetType() const {
         return ET::Letter;
@@ -93,19 +93,19 @@ public:
 private:
 	 enum { DefaultXVelocity = 4, DefaultYVelocity = 20,
            DefaultXAcceleration = 0, DefaultYAcceleration = -60 };
-	 double m_x;               // po³o¿enie litery na osi odciêtych
-    double m_y;               // po³o¿enie litery na osi rzêdnych
-    double m_vx;              // prêdkoœæ na osi OX
-    double m_vy;              // prêdkoœæ litery w pionie
+	//double m_x;               // po³o¿enie litery na osi odciêtych
+  //  double m_y;               // po³o¿enie litery na osi rzêdnych
+  //  double m_vx;              // prêdkoœæ na osi OX
+  //  double m_vy;              // prêdkoœæ litery w pionie
     std::string m_letter;                       
                             
 
 	size_t m_level_width; 
 	size_t m_level_height;    // szerokoœæ poziomu (w kaflach)
-    bool m_can_go_left;       // czy litera mo¿e przesun¹æ siê w lewo
-    bool m_can_go_right;      // czy litera mo¿e przesun¹æ siê w prawo
-	bool m_can_go_down;		// czy litera mo¿e przesun¹æ siê w dó³
-	bool m_can_go_up;		//czy litera mo¿e przesun¹æ siê w góre
+ //   bool m_can_go_left;       // czy litera mo¿e przesun¹æ siê w lewo
+ //   bool m_can_go_right;      // czy litera mo¿e przesun¹æ siê w prawo
+//	bool m_can_go_down;		// czy litera mo¿e przesun¹æ siê w dó³
+//	bool m_can_go_up;		//czy litera mo¿e przesun¹æ siê w góre
 	bool m_correct;			// czy litera jest w prawid³owym po³o¿eniu
 	SpritePtr m_letterSprite;
 };

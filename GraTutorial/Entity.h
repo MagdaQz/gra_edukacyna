@@ -11,7 +11,7 @@ class Entity
 {
 public:
 	  explicit Entity(double x, double y, double def_velocity_x, double def_velocity_y,
-                    double def_acceleration_x = 0, double default_acceleration_y = 0);
+                    double def_acceleration_x = 0, double default_acceleration_y = 0, bool canMove = false);
 
     virtual ET::EntityType GetType() const = 0;
 	virtual void Update(double dt){};
@@ -62,8 +62,8 @@ protected:
     bool m_is_on_ground;      // czy postaæ jest na pod³o¿u
     bool m_can_go_left;       // czy postaæ mo¿e iœæ w lewo
     bool m_can_go_right;     // czy postaæ mo¿e iœæ w prawo
-	bool m_can_go_up;
-	bool m_can_go_down;
+	bool m_can_go_up;		// czy postaæ mo¿e iœæ w górê
+	bool m_can_go_down;		// czy postaæ mo¿e iœæ w dó³	
 };
 
 typedef shared_ptr<Entity> EntityPtr;

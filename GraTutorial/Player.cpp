@@ -3,22 +3,13 @@
 #include "Engine.h"
  
 Player::Player(double x, double y, size_t level_width, size_t level_height) 
-    : Entity(x, y, DefaultXVelocity, DefaultYVelocity, DefaultXAcceleration, DefaultYAcceleration),
+    : Entity(x, y, DefaultXVelocity, DefaultYVelocity, DefaultXAcceleration, DefaultYAcceleration, true),
 	  m_state(PS::Stand),
-     // m_x(x),
-     // m_y(y),
-     // m_vx(0.0),
-    //  m_vy(0),
-    //  m_ay(DefaultYAcceleration),
       m_running_factor(1.0),
       m_jump_allowed(true),
       m_level_width(level_width),
-	  m_level_height(level_height),
-      m_is_on_ground(true),
-    //  m_can_go_left(true),
-   //   m_can_go_right(true),
-	  m_can_go_down(true),
-	  m_can_go_up(true)
+	  m_level_height(level_height)
+ 
 {
     SetDefaultMoving();
 }
