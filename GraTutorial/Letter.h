@@ -13,16 +13,10 @@ public:
 	Letter (double x, double y, size_t level_width, size_t level_height, std::string letter) 
     : Entity(x, y, DefaultXVelocity, DefaultYVelocity, DefaultXAcceleration, DefaultYAcceleration, false),
 	  m_letter(letter),
-   //   m_x(x),
-   //   m_y(y),
-   //   m_vx(0.0),
- //     m_vy(0),
+
       m_level_width(level_width),
 	  m_level_height(level_height),
-    //  m_can_go_left(false),
-    //  m_can_go_right(false),
-	//  m_can_go_down(false),
-	//  m_can_go_up(false),
+
 	  m_correct(false){}
 	ET::EntityType GetType() const {
         return ET::Letter;

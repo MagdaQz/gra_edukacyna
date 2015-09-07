@@ -48,9 +48,4 @@ private:
 typedef shared_ptr<Alphabet> AlphabetPtr;
 
 
-
-
-
-
-
 #endif

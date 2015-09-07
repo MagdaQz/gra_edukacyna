@@ -79,11 +79,7 @@ private:
     SpritePtr m_stop;		  // animacja - postaæ stoi
 	SpritePtr m_down;
 	SpritePtr m_up;
- //   double m_x;               // po³o¿enie postaci na osi odciêtych
-   // double m_y;               // po³o¿enie postaci na osi rzêdnych
-  //  double m_vx;              // prêdkoœæ na osi OX
-  //  double m_vy;              // prêdkoœæ gracza w pionie
-  //  double m_ay;              // przyspieszenie gracza w pionie
+
     double m_running_factor;  // wspó³czynnik biegania. 
                               //         >1.0 => biegnie, 
                               //         <1.0 => spowolnienie
@@ -91,11 +87,7 @@ private:
                               // (np. jest na pod³o¿u)
     size_t m_level_width; 
 	size_t m_level_height;    // szerokoœæ poziomu (w kaflach)
- //   bool m_is_on_ground;      // czy postaæ jest na pod³o¿u
-//    bool m_can_go_left;       // czy postaæ mo¿e iœæ w lewo
- //   bool m_can_go_right;      // czy postaæ mo¿e iœæ w prawo
-//	bool m_can_go_down;
-//	bool m_can_go_up;
+
 };
 typedef shared_ptr<Player> PlayerPtr;
 #endif
