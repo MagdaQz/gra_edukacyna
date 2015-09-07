@@ -5,11 +5,11 @@
 #include "App.h"
 #include "Sound.h"
 
-#if defined(__APPLE__)
+/*#if defined(__APPLE__)
 #include <GLUT/glut.h>
 #else
 #include <GL/glut.h>
-#endif
+#endif*/
 
 
 void App::Run() {
@@ -51,7 +51,7 @@ void App::Run() {
     Engine::Get().FSound()->PlayMusic("game");
 
   // pêtla g³ówna
- // is_done = false;
+  is_done = false;
   size_t last_ticks = SDL_GetTicks();
 
   while (!is_done) {
@@ -99,8 +99,7 @@ void App::ProcessEvents() {
 				m_wordsmaker->LetLettersMove();
 		}else if (event.type == SDL_KEYUP 
                    && event.key.keysym.sym == SDLK_LCTRL) {
-            m_wordsmaker->ForbidLettersMove();
-	
+            m_wordsmaker->ForbidLettersMove();	
 	   }else if (event.type == SDL_QUIT) {
             is_done = true;
             break;
@@ -113,7 +112,6 @@ void App::ProcessEvents() {
             m_player->GoUp();
 			if(m_wordsmaker->LettersCanMove())			
 			{	m_wordsmaker->MoveUp();}
-
         } else if (event.type == SDL_KEYDOWN 
                    && event.key.keysym.sym == SDLK_LEFT) {
             m_player->GoLeft();
